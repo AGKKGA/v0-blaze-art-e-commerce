@@ -10,7 +10,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-sans)'],
+        serif: ['var(--font-serif)'],
+      },
       colors: {
+        gold: {
+          DEFAULT: 'hsl(var(--gold))',
+          light: 'hsl(var(--gold-light))',
+        },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
