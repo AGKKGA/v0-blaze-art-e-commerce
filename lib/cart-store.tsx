@@ -25,8 +25,10 @@ function getSnapshot() {
   return items
 }
 
+// Cache the server snapshot to avoid infinite loop in React 19
+const emptyServerSnapshot: CartItem[] = []
 function getServerSnapshot(): CartItem[] {
-  return []
+  return emptyServerSnapshot
 }
 
 // ---- public actions ----
