@@ -1,0 +1,122 @@
+-- Seed artworks with sample data
+INSERT INTO artworks (title, description, category, price, type, stock_quantity, image_url, watermarked_url, is_featured, is_active) VALUES
+(
+  'Crimson Horizon',
+  'A bold abstract painting capturing the raw energy of a sunset over the Mediterranean. Deep reds and oranges blend into midnight blues, evoking the warmth and passion of Northern Cyprus.',
+  'Paintings',
+  450.00,
+  'physical',
+  3,
+  'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800&q=80',
+  'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800&q=60',
+  true,
+  true
+),
+(
+  'Digital Dreamscape',
+  'A mesmerizing digital artwork blending surreal landscapes with geometric precision. Perfect for modern interiors seeking a contemporary edge.',
+  'Digital Art',
+  85.00,
+  'digital',
+  NULL,
+  'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=800&q=80',
+  'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=800&q=60',
+  true,
+  true
+),
+(
+  'Silent Waves',
+  'An ethereal seascape painted with soft strokes and muted tones. The calming presence of this piece transforms any room into a serene retreat.',
+  'Paintings',
+  620.00,
+  'physical',
+  2,
+  'https://images.unsplash.com/photo-1549490349-8643362247b5?w=800&q=80',
+  'https://images.unsplash.com/photo-1549490349-8643362247b5?w=800&q=60',
+  true,
+  true
+),
+(
+  'Neon Pulse',
+  'A vibrant digital composition of light and color, inspired by the energy of city nightlife. High-resolution download perfect for prints or screens.',
+  'Digital Art',
+  65.00,
+  'digital',
+  NULL,
+  'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80',
+  'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=60',
+  false,
+  true
+),
+(
+  'Golden Fragments',
+  'Abstract expressionism meets digital artistry. Gold leaf textures layered with bold strokes create a stunning focal point for any collection.',
+  'Paintings',
+  780.00,
+  'physical',
+  1,
+  'https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=800&q=80',
+  'https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=800&q=60',
+  true,
+  true
+),
+(
+  'Blaze Studio Logo Pack',
+  'A premium collection of 5 custom logo variations designed with modern minimalism. Includes vector files, transparent PNGs, and brand guidelines.',
+  'Logos',
+  120.00,
+  'digital',
+  NULL,
+  'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&q=80',
+  'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&q=60',
+  false,
+  true
+),
+(
+  'Ember & Ash',
+  'A powerful large-format painting exploring themes of transformation. Charcoal blacks give way to fiery oranges in this dramatic piece.',
+  'Paintings',
+  950.00,
+  'physical',
+  1,
+  'https://images.unsplash.com/photo-1573521193826-58c7dc2e13e3?w=800&q=80',
+  'https://images.unsplash.com/photo-1573521193826-58c7dc2e13e3?w=800&q=60',
+  false,
+  true
+),
+(
+  'Cyber Flora',
+  'A digital illustration merging organic botanical forms with futuristic aesthetics. Part of the Nature x Tech series.',
+  'Digital Art',
+  55.00,
+  'digital',
+  NULL,
+  'https://images.unsplash.com/photo-1482160549825-59d1b23cb208?w=800&q=80',
+  'https://images.unsplash.com/photo-1482160549825-59d1b23cb208?w=800&q=60',
+  false,
+  true
+),
+(
+  'Mediterranean Blue',
+  'Inspired by the crystal-clear waters of the Northern Cyprus coast. This painting captures the play of light on water using layered glazing techniques.',
+  'Paintings',
+  520.00,
+  'physical',
+  2,
+  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80',
+  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=60',
+  false,
+  true
+),
+(
+  'Monogram Luxe',
+  'Elegant custom monogram logo design. Perfect for personal branding, stationery, and luxury goods. Delivered as high-res digital files.',
+  'Logos',
+  95.00,
+  'digital',
+  NULL,
+  'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80',
+  'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=60',
+  false,
+  true
+);
