@@ -170,36 +170,36 @@ export function ArtworkForm({
                     </p>
                 </div>
 
-                {/* Main Image Upload */}
+                {/* Image Upload - Single upload with automatic watermarking */}
                 <div className="md:col-span-2">
                     <Label className="text-foreground">
-                        Main Image *
+                        Artwork Image *
                     </Label>
                     <p className="mt-1 mb-3 text-xs text-muted-foreground">
-                        Full resolution image for customers after purchase
+                        Upload your artwork - a watermarked version will be created automatically for the gallery
                     </p>
                     <CloudinaryUpload
                         value={imageUrl}
-                        onChange={setImageUrl}
-                        onRemove={() => setImageUrl("")}
-                        label="Main Image"
+                        onChange={(url) => {
+                            setImageUrl(url)
+                            // Automatically create watermarked version
+                            const watermarked = url.replace(
+                                '/upload/',
+                                '/upload/l_text:Arial_60_bold:BLAZE.ART,co_rgb:FFFFFF,o_40,g_center/'
+                            )
+                            setWatermarkedUrl(watermarked)
+                        }}
+                        onRemove={() => {
+                            setImageUrl("")
+                            setWatermarkedUrl("")
+                        }}
+                        label="Artwork"
                     />
-                </div>
-
-                {/* Watermarked Preview Upload */}
-                <div className="md:col-span-2">
-                    <Label className="text-foreground">
-                        Watermarked Preview *
-                    </Label>
-                    <p className="mt-1 mb-3 text-xs text-muted-foreground">
-                        Watermarked version shown in gallery (protects your work)
-                    </p>
-                    <CloudinaryUpload
-                        value={watermarkedUrl}
-                        onChange={setWatermarkedUrl}
-                        onRemove={() => setWatermarkedUrl("")}
-                        label="Watermarked Preview"
-                    />
+                    {watermarkedUrl && (
+                        <p className="mt-2 text-xs text-primary">
+                            ✓ Watermarked preview created automatically
+                        </p>
+                    )}
                 </div>
             </div>
 
