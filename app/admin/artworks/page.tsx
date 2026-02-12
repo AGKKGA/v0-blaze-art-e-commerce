@@ -83,6 +83,7 @@ export default async function ArtworksPage() {
                                                 alt={artwork.title}
                                                 fill
                                                 className="object-cover"
+                                                unoptimized
                                             />
                                         </div>
                                     </TableCell>
