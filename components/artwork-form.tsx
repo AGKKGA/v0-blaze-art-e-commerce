@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/select"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { AlertCircle } from "lucide-react"
+import { CloudinaryUpload } from "@/components/cloudinary-upload"
 import type { Artwork } from "@/lib/types"
 
 interface ArtworkFormProps {
@@ -31,13 +32,24 @@ export function ArtworkForm({
     const router = useRouter()
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
+    const [imageUrl, setImageUrl] = useState(artwork?.image_url || "")
+    const [watermarkedUrl, setWatermarkedUrl] = useState(artwork?.watermarked_url || "")
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
         setLoading(true)
         setError(null)
 
+        if (!imageUrl || !watermarkedUrl) {
+            setError("Please upload both the main image and watermarked preview")
+            setLoading(false)
+            return
+        }
+
         const formData = new FormData(e.currentTarget)
+        formData.set("image_url", imageUrl)
+        formData.set("watermarked_url", watermarkedUrl)
+
         const result = await onSubmit(formData)
 
         if (result?.error) {
@@ -158,42 +170,36 @@ export function ArtworkForm({
                     </p>
                 </div>
 
-                {/* Image URL */}
+                {/* Main Image Upload */}
                 <div className="md:col-span-2">
-                    <Label htmlFor="image_url" className="text-foreground">
-                        Image URL *
+                    <Label className="text-foreground">
+                        Main Image *
                     </Label>
-                    <Input
-                        id="image_url"
-                        name="image_url"
-                        type="url"
-                        required
-                        defaultValue={artwork?.image_url}
-                        className="mt-1 bg-card text-foreground"
-                        placeholder="https://example.com/image.jpg"
-                    />
-                    <p className="mt-1 text-xs text-muted-foreground">
+                    <p className="mt-1 mb-3 text-xs text-muted-foreground">
                         Full resolution image for customers after purchase
                     </p>
+                    <CloudinaryUpload
+                        value={imageUrl}
+                        onChange={setImageUrl}
+                        onRemove={() => setImageUrl("")}
+                        label="Main Image"
+                    />
                 </div>
 
-                {/* Watermarked URL */}
+                {/* Watermarked Preview Upload */}
                 <div className="md:col-span-2">
-                    <Label htmlFor="watermarked_url" className="text-foreground">
-                        Watermarked Preview URL *
+                    <Label className="text-foreground">
+                        Watermarked Preview *
                     </Label>
-                    <Input
-                        id="watermarked_url"
-                        name="watermarked_url"
-                        type="url"
-                        required
-                        defaultValue={artwork?.watermarked_url}
-                        className="mt-1 bg-card text-foreground"
-                        placeholder="https://example.com/watermarked.jpg"
-                    />
-                    <p className="mt-1 text-xs text-muted-foreground">
-                        Watermarked version shown in gallery
+                    <p className="mt-1 mb-3 text-xs text-muted-foreground">
+                        Watermarked version shown in gallery (protects your work)
                     </p>
+                    <CloudinaryUpload
+                        value={watermarkedUrl}
+                        onChange={setWatermarkedUrl}
+                        onRemove={() => setWatermarkedUrl("")}
+                        label="Watermarked Preview"
+                    />
                 </div>
             </div>
 
